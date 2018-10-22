@@ -1,0 +1,33 @@
+type Post {
+  id: ID! @unique
+  createdAt: DateTime!
+  description: String!
+  url: String!
+  postedBy: User
+  votes: [Vote!]!
+  likes:[Like!]!
+  likeCount:Int
+}
+type User {
+  id: ID! @unique
+  name: String!
+  email: String! @unique
+  password: String!
+  posts: [Post!]!
+  votes: [Vote!]!
+  likes:[Like!]!
+}
+
+type Vote {
+  id: ID! @unique
+  post: Post!
+  user: User!
+}
+
+type Like {
+   id:ID! @unique
+   post:Post!
+   user:User!
+}
+
+
